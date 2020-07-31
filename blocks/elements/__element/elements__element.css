@@ -1,0 +1,6 @@
+.elements__element {
+    width: 282px;
+    height: 362px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}

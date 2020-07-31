@@ -1,0 +1,8 @@
+.popup__input-occupation {
+    width: 358px;
+    height: 28px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none !important;
+    margin-top: 26px;
+}
