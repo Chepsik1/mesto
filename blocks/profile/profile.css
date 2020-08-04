@@ -5,9 +5,26 @@
 @import url(./__addit-button/profile__addit-button.css);
 @import url(./__info/profile__info.css);
 @import url(./__button-name/profile__button-name.css);
+
 .profile {
     max-width: 882px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 920px) {
+    .profile {}
+}
+
+@media screen and (max-width: 640px) {
+    .profile {
+        justify-content: center;
+        flex-direction: column;
+
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .profile {}
 }

@@ -5,14 +5,14 @@
 @import url(./__title/popup__title.css);
 @import url(./__close/popup__close.css);
 .popup {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     background-color: rgb(6 6 6 / 0.5);
-    display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
+    z-index: 100;
 }

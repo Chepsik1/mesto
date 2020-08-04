@@ -1,44 +1,14 @@
+    @import url(./_img/popup__close_img.css);
+
     .popup__close {
-        width: 40px;
-        height: 40px;
+
         border: none;
         background: none;
         position: relative;
         top: -190px;
         right: 15px;
         cursor: pointer;
+        background-size: cover;
+
+
     }
-    /* position: relative;
-    top: -297px;
-    right: -50px;
-    border: none;
-    outline: none;
-    background: none;
-    width: 25px;
-    height: 45px;
-    cursor: pointer;
-}
-
-.popup__close::before {
-    content: '';
-    display: block;
-    height: 45px;
-    position: relative;
-    border-left: 4px solid white;
-    transform: rotate(45deg);
-    top: 24px;
-    right: -10px;
-    transition: opacity .3s linear;
-}
-
-.popup__close::after {
-    content: '';
-    display: block;
-    height: 45px;
-    position: relative;
-    border-left: 4px solid white;
-    transform: rotate(-45deg);
-    top: -28px;
-    right: -10px;
-    transition: opacity .3s linear;
-} */

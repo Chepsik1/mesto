@@ -1,5 +1,5 @@
 .popup__save {
-    width: 358px;
+    width: 80%;
     height: 50.15px;
     background: #000000;
     border-radius: 2px;
@@ -11,4 +11,10 @@
     text-align: center;
     color: #FFFFFF;
     margin-top: 48px;
+    cursor: pointer;
+}
+
+.popup__save:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
 }

@@ -1,0 +1,5 @@
+.popup__close_img {}
+
+.popup__close_img:hover {
+    opacity: 0.6;
+}

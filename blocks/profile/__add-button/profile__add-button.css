@@ -5,4 +5,16 @@
     box-sizing: border-box;
     border-radius: 2px;
     background-color: #000000;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    .profile__add-button {
+        margin: 36px 0 0 0;
+
+    }
+}
+
+.profile__add-button:hover {
+    opacity: 0.6;
 }

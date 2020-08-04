@@ -1,9 +1,23 @@
 .profile__name {
-    font-family: Inter;
+    font-family:  Inter, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
     line-height: 56px;
     color: #fff;
     margin: 0;
+}
+
+@media screen and (max-width: 640px) {
+    .profile__name {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 56px;
+        /* or 207% */
+
+        text-align: center;
+
+    }
 }
