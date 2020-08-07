@@ -4,97 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 
 <body>
     <div class="page">
-        <section class="header">
+        <header class="header">
             <img src="./images/logo.svg" alt="Логотип" class="header__logo">
             <div class="header__line"></div>
-        </section>
-        <section class="profile">
-
-            <img src="./images/avatar.jpg" class="profile__avatar" alt="">
-
-            <div class="profile__info">
-                <div class="profile__button-name">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__addit-button"><img src="./images/Vector (1).svg" alt=""></button>
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img src="./images/avatar.jpg" class="profile__avatar" alt="Аватарка">
+                <div class="profile__info">
+                    <div class="profile__button-name">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__addit-button"></button>
+                    </div>
+                    <p class="profile__occupation">Исследователь океана</p>
                 </div>
-                <p class="profile__occupation">Исследователь океана</p>
-            </div>
-
-
-            <button class="profile__add-button"><img src="./images/Vector.svg" alt=""></button>
-
-
-
-
-        </section>
-        <section class="elements">
-            <div class="elements__element">
-                <img class="elements__element-image" src="./images/karachaevsk.jpg" alt="">
-                <div class="elements__element-rectangle">
-                    <p class="elements__element-title">Карачаевск</p>
-                    <img src="./images/heart.svg" alt="" class="elements__element-like">
+                <button type="button" class="profile__add-button"></button>
+            </section>
+            <section class="elements">
+                <div class="elements__element">
+                    <img class="elements__element-image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+                    <div class="elements__element-rectangle">
+                        <p class="elements__element-title">Карачаевск</p>
+                        <button type="button" class="elements__element-like"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="elements__element">
-                <img class="elements__element-image" src="./images/elbrus.jpg" alt="">
-                <div class="elements__element-rectangle">
-                    <p class="elements__element-title">Гора Эльбрус</p>
-                    <img src="./images/heart.svg" alt="" class="elements__element-like">
+                <div class="elements__element">
+                    <img class="elements__element-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+                    <div class="elements__element-rectangle">
+                        <p class="elements__element-title">Гора Эльбрус</p>
+                        <button type="button" class="elements__element-like"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="elements__element">
-                <img class="elements__element-image" src="./images/dombai.jpg" alt="">
-                <div class="elements__element-rectangle">
-                    <p class="elements__element-title">Домбай</p>
-                    <img src="./images/heart.svg" alt="" class="elements__element-like">
+                <div class="elements__element">
+                    <img class="elements__element-image" src="./images/dombai.jpg" alt="Домбай">
+                    <div class="elements__element-rectangle">
+                        <p class="elements__element-title">Домбай</p>
+                        <button type="button" class="elements__element-like"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="elements__element">
-                <img class="elements__element-image" src="./images/elbrus.jpg" alt="">
-                <div class="elements__element-rectangle">
-                    <p class="elements__element-title">Гора Эльбрус</p>
-                    <img src="./images/heart.svg" alt="" class="elements__element-like">
+                <div class="elements__element">
+                    <img class="elements__element-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+                    <div class="elements__element-rectangle">
+                        <p class="elements__element-title">Гора Эльбрус</p>
+                        <button type="button" class="elements__element-like"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="elements__element">
-                <img class="elements__element-image" src="./images/dombai.jpg" alt="">
-                <div class="elements__element-rectangle">
-                    <p class="elements__element-title">Домбай</p>
-                    <img src="./images/heart.svg" alt="" class="elements__element-like">
+                <div class="elements__element">
+                    <img class="elements__element-image" src="./images/dombai.jpg" alt="Домбай">
+                    <div class="elements__element-rectangle">
+                        <p class="elements__element-title">Домбай</p>
+                        <button type="button" class="elements__element-like"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="elements__element">
-                <img class="elements__element-image" src="./images/karachaevsk.jpg" alt="">
-                <div class="elements__element-rectangle">
-                    <p class="elements__element-title">Карачаево-Черкессия</p>
-                    <img src="./images/heart.svg" alt="" class="elements__element-like">
+                <div class="elements__element">
+                    <img class="elements__element-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия">
+                    <div class="elements__element-rectangle">
+                        <p class="elements__element-title">Карачаево-Черкессия</p>
+                        <button type="button" class="elements__element-like"></button>
+                    </div>
                 </div>
-            </div>
 
-
-        </section>
-        <section class="footer">
+            </section>
+        </main>
+        <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
-        </section>
+        </footer>
     </div>
     <div class="popup">
-        <form class="popup__container">
-
+        <form class="popup__container" name="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <input class="popup__input-name" type="text" value="Жак-Ив Кусто">
-            <input class="popup__input-occupation" type="text" value="Исследователь океана">
+            <input class="popup__input" name="username" id="username" type="text" value="Жак-Ив Кусто">
+            <input class="popup__input" name="occupation" id="occupation" type="text" value="Исследователь океана">
             <button type="submit" class='popup__save'>Сохранить</button>
-
         </form>
-        <button class='popup__close'><img class='popup__close_img' src="./images/сlose.png" alt=""></button>
-
+        <button type="button" class='popup__close'></button>
     </div>
     <script src="./js/index.js"></script>
 </body>

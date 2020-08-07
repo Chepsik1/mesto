@@ -1,3 +1,17 @@
 .elements__element-like {
     margin: 0 18.24px 0 0px;
+    height: 18.13px;
+    width: 20.76px;
+    background: none;
+    background-image: url(../../../images/heart.svg);
+    border: none;
+    cursor: pointer;
+}
+
+.elements__element-like:focus{
+    outline: none;
+}
+
+.elements__element-like:hover{
+    opacity: 0.6;
 }

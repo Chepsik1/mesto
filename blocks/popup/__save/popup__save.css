@@ -1,16 +1,16 @@
 .popup__save {
-    width: 80%;
+    width: 83%;
     height: 50.15px;
     background: #000000;
     border-radius: 2px;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 48px;
+    margin-top: 23px;
     cursor: pointer;
 }
 

@@ -3,12 +3,18 @@
     .popup__close {
 
         border: none;
-        background: none;
+        height: 40.7px;
+        width: 40.7px;
+        /* background: none; */
         position: relative;
-        top: -190px;
-        right: 15px;
+        top: -183px;
+        right: 3px;
         cursor: pointer;
         background-size: cover;
+        background: url(../../../images/close.svg);
+        background-position: center;
+    }
 
-
+    .popup__close:hover{
+        opacity: 0.6;
     }
