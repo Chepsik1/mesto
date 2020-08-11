@@ -11,15 +11,22 @@ let jobInput = document.querySelector('#occupation');
 let nameProfil = document.querySelector('.profile__name');
 let profileOccupation = document.querySelector('.profile__occupation');
 
-let popupToggle = function (textContent) {
-    if (event.target !== event.currentTarget) return
-    textContent.preventDefault();
+
+let popupToggle = function (event) {
+    if (event.target !== event.currentTarget) return;
     popup.classList.toggle('popup_opened');
+    if (popup.classList.contains("popup_opened")) {
+        nameInput.value = nameProfil.textContent;
+        jobInput.value = profileOccupation.textContent;
+    }
+
+    event.preventDefault();
+
 }
 
 
-
 function formSubmitHandler(textContent) {
+
     textContent.preventDefault();
     nameProfil.textContent = nameInput.value;
     profileOccupation.textContent = jobInput.value;
