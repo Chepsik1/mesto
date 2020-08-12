@@ -15,14 +15,13 @@ let profileOccupation = document.querySelector('.profile__occupation');
 let popupToggle = function (event) {
     if (event.target !== event.currentTarget) return;
     popup.classList.toggle('popup_opened');
+
     if (popup.classList.contains("popup_opened")) {
         nameInput.value = nameProfil.textContent;
         jobInput.value = profileOccupation.textContent;
     }
 
-    event.preventDefault();
-
-}
+   }
 
 
 function formSubmitHandler(textContent) {
