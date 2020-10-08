@@ -27,48 +27,20 @@
                 <button type="button" class="profile__add-button"></button>
             </section>
             <section class="elements">
-                <div class="elements__element">
-                    <img class="elements__element-image" src="./images/karachaevsk.jpg" alt="Карачаевск">
-                    <div class="elements__element-rectangle">
-                        <p class="elements__element-title">Карачаевск</p>
-                        <button type="button" class="elements__element-like"></button>
+             
+                <template id="cards">
+                    <div class="elements__element">
+                        <button type="button" class="elements__element-trash"></button>
+                        <img class="elements__element-image" src="" alt="">                   
+                        <div class="elements__element-rectangle">
+                            <p class="elements__element-title"></p>
+                            <button type="button" class="elements__element-like"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__element-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-                    <div class="elements__element-rectangle">
-                        <p class="elements__element-title">Гора Эльбрус</p>
-                        <button type="button" class="elements__element-like"></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__element-image" src="./images/dombai.jpg" alt="Домбай">
-                    <div class="elements__element-rectangle">
-                        <p class="elements__element-title">Домбай</p>
-                        <button type="button" class="elements__element-like"></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__element-image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-                    <div class="elements__element-rectangle">
-                        <p class="elements__element-title">Гора Эльбрус</p>
-                        <button type="button" class="elements__element-like"></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__element-image" src="./images/dombai.jpg" alt="Домбай">
-                    <div class="elements__element-rectangle">
-                        <p class="elements__element-title">Домбай</p>
-                        <button type="button" class="elements__element-like"></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__element-image" src="./images/karachaevsk.jpg" alt="Карачаево-Черкессия">
-                    <div class="elements__element-rectangle">
-                        <p class="elements__element-title">Карачаево-Черкессия</p>
-                        <button type="button" class="elements__element-like"></button>
-                    </div>
-                </div>
+                    
+                </template>
+                
+            
 
             </section>
         </main>
@@ -85,7 +57,31 @@
         </form>
         <button type="button" class='popup__close'></button>
     </div>
+    <div class="new-item-popup">
+        <form class="new-item-popup__container" name="new-item-popup-container">
+            <h3 class="new-item-popup__title">Новое место</h3>
+            <input class="new-item-popup__input" name="placename" id="placename" type="text" value="" placeholder="Название">
+            <input class="new-item-popup__input" name="linkpicture" id="linkpicture" type="text" value="" placeholder="Ссылка на картинку">
+            <button type="submit" class='new-item-popup__save'>Создать</button>
+        </form>
+        <button type="button" class='new-item-popup__close'></button>
+    </div>
+
+    <div class="popup-image">
+        
+       <div class="popup-image__block">
+        <button type="button" class='popup-image__close'></button>
+        
+        <img class="popup-image__foto" src="" alt="">
+        <p class="popup-image__title"></p>
+        
+    </div>
+    
+    
+    </div>
     <script src="./js/index.js"></script>
+    <script src="./js/new-item-form.js"></script>
+
 </body>
 
 </html>

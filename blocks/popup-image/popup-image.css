@@ -1,0 +1,24 @@
+@import url(./__close/popup-image__close.css);
+@import url(./__foto/popup-image__foto.css);
+@import url(./__title/popup-image__title.css);
+@import url(./__block/popup-image__block.css);
+
+.popup-image{
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(6 6 6 / 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+   
+   
+   
+  
+}

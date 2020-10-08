@@ -1,0 +1,19 @@
+.elements__element-trash {
+    height: 19.3px;
+    width: 18px;
+    background: none;
+    background-image: url(../../../images/trash.png);
+    position: relative;
+    top: 36px;
+    left: 247px;
+    border: none;
+    cursor: pointer;
+}
+
+.elements__element-trash:focus{
+    outline: none;
+}
+
+.elements__element-trash:hover{
+    opacity: 0.6;
+}

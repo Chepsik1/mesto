@@ -1,9 +1,9 @@
 .elements__element-like {
     margin: 0 18.24px 0 0px;
     height: 18.13px;
-    width: 20.76px;
+    width: 21.76px;
     background: none;
-    background-image: url(../../../images/heart.svg);
+    background-image: url(../../../images/like.png);
     border: none;
     cursor: pointer;
 }
