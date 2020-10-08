@@ -1,8 +1,9 @@
 .popup-image_opened {
-    
+  visibility: visible;
   display: flex;
-  transition: 2s;
   opacity: 1;
+  transition: opacity .9s;
+  
   
     
 }
