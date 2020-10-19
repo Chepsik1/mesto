@@ -4,27 +4,26 @@ const closePopupButton = document.querySelector('.popup__close');
 
 
 
-let formElement = document.querySelector('.popup__container');
-let popupSave = document.querySelector('.popup__save');
+const formElement = document.querySelector('.popup__container');
+const popupSave = document.querySelector('.popup__save');
 
-let nameInput = document.querySelector('#username');
-let jobInput = document.querySelector('#occupation');
+const nameInput = document.querySelector('#username');
+const jobInput = document.querySelector('#occupation');
 
-let nameProfil = document.querySelector('.profile__name');
-let profileOccupation = document.querySelector('.profile__occupation');
+const nameProfil = document.querySelector('.profile__name');
+const profileOccupation = document.querySelector('.profile__occupation');
 
-
-let popupToggle = function (event) {
+function popupToggle(event) {
     if (event.target !== event.currentTarget) return;
     popup.classList.toggle('popup_opened');
-    
+
 
     if (popup.classList.contains("popup_opened")) {
         nameInput.value = nameProfil.textContent;
         jobInput.value = profileOccupation.textContent;
     }
 
-   }
+}
 
 
 function formSubmitHandler(textContent) {
@@ -32,8 +31,8 @@ function formSubmitHandler(textContent) {
     textContent.preventDefault();
     nameProfil.textContent = nameInput.value;
     profileOccupation.textContent = jobInput.value;
-    popupToggle(event);
-    
+    popupToggle(window.event);
+
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -41,4 +40,3 @@ formElement.addEventListener('submit', formSubmitHandler);
 openPopupButton.addEventListener('click', popupToggle);
 closePopupButton.addEventListener('click', popupToggle);
 popup.addEventListener('click', popupToggle);
-

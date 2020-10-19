@@ -11,7 +11,7 @@
     background: url(../../../images/close.svg);
     background-position: center;
     margin-left: 100%;
-margin-top: -40px;
+    margin-top: -40px;
 
 }
 
@@ -21,10 +21,9 @@ margin-top: -40px;
 
 @media screen and (max-width: 640px) {
     .popup-image__close {
-        
-    height: 30px;
-    width: 30px;
-    margin-top: -35px;
+
+        height: 30px;
+        width: 30px;
+        margin-top: -35px;
     }
 }
-

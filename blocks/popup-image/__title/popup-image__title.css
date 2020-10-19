@@ -1,11 +1,11 @@
 .popup-image__title {
     position: absolute;
     font-family: Inter, sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 15px;
-margin: 0px 0px -25px 0;
-color: #FFFFFF;
-align-self: flex-end;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0px 0px -25px 0;
+    color: #FFFFFF;
+    align-self: flex-end;
 }

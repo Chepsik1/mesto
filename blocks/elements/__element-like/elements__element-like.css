@@ -8,10 +8,10 @@
     cursor: pointer;
 }
 
-.elements__element-like:focus{
+.elements__element-like:focus {
     outline: none;
 }
 
-.elements__element-like:hover{
+.elements__element-like:hover {
     opacity: 0.6;
 }
