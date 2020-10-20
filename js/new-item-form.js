@@ -40,7 +40,7 @@ const initialCards = [{
 ];
 
 //открытие и закрытие попапа
-function newItemFormToggle(event) {
+function createItemFormToggle(event) {
     if (event.target !== event.currentTarget) return;
     newItemForm.classList.toggle('popup_opened');
     
@@ -51,8 +51,8 @@ function newItemFormToggle(event) {
 }
 
 function generateCard(title, alt, imageLink) {
-    let cardTemplate = card.cloneNode(true);
-    let cardImage = cardTemplate.querySelector('.elements__element-image');
+    const cardTemplate = card.cloneNode(true);
+    const cardImage = cardTemplate.querySelector('.elements__element-image');
     cardTemplate.querySelector('.elements__element-title').textContent = title;
     cardImage.alt = alt;
     cardImage.src = imageLink;
@@ -82,7 +82,7 @@ function submitFormCard(textContent) {
     initialCards.push(linkImage.value + nameImege.value);
     initialCards.link = linkImage.value;
     initialCards.name = nameImege.value;
-    newItemFormToggle(window.event);
+    createItemFormToggle(window.event);
     addCardTemplate();
 }
 
@@ -129,6 +129,6 @@ function closeItemImage() {
 
 newItemImageClose.addEventListener('click', closeItemImage);
 newItemPopupContainer.addEventListener('submit', submitFormCard);
-newItemForm.addEventListener('click', newItemFormToggle);
-openNewItemFormButton.addEventListener('click', newItemFormToggle);
-closeNewItemFormButton.addEventListener('click', newItemFormToggle);
+newItemForm.addEventListener('click', createItemFormToggle);
+openNewItemFormButton.addEventListener('click', createItemFormToggle);
+closeNewItemFormButton.addEventListener('click', createItemFormToggle);

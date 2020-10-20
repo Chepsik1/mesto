@@ -13,7 +13,7 @@ const jobInput = document.querySelector('#occupation');
 const nameProfil = document.querySelector('.profile__name');
 const profileOccupation = document.querySelector('.profile__occupation');
 
-function popupToggle(event) {
+function switchPopupToggle(event) {
     if (event.target !== event.currentTarget) return;
     popup.classList.toggle('popup_opened');
 
@@ -26,17 +26,17 @@ function popupToggle(event) {
 }
 
 
-function formSubmitHandler(textContent) {
+function handleFormSubmit(textContent) {
 
     textContent.preventDefault();
     nameProfil.textContent = nameInput.value;
     profileOccupation.textContent = jobInput.value;
-    popupToggle(window.event);
+    switchPopupToggle(window.event);
 
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', handleFormSubmit);
 
-openPopupButton.addEventListener('click', popupToggle);
-closePopupButton.addEventListener('click', popupToggle);
-popup.addEventListener('click', popupToggle);
+openPopupButton.addEventListener('click', switchPopupToggle);
+closePopupButton.addEventListener('click', switchPopupToggle);
+popup.addEventListener('click', switchPopupToggle);
