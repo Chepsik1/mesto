@@ -18,3 +18,10 @@
     background: rgba(0, 0, 0, 0.8);
     border-radius: 2px;
 }
+
+.popup__save:disabled {
+
+    box-sizing: border-box;
+    border-radius: 2px;
+    background: #E5E5E5;
+}

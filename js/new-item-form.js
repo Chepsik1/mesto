@@ -12,6 +12,7 @@ const imageFoto = document.querySelector('.popup-image__foto');
 const imegePopup = document.querySelector('.elements__element-image');
 const newItemImage = document.querySelector('.popup-image');
 const newItemImageClose = document.querySelector('.popup-image__close');
+
 const titleImageFoto = document.querySelector('.popup-image__title');
 const initialCards = [{
         name: 'Архыз',
@@ -123,12 +124,30 @@ elements.addEventListener('click', ({
     }
 });
 
-function closeItemImage() {
+function closeItemImage(evt) {
+    if (evt.target !== evt.currentTarget) return;
     newItemImage.classList.toggle('popup-image_opened');
 }
+// Функция escClose(событие){
+//     Const открытыйЩасПопап = документ.выберипоселектору(.открытый_попап)
+//     Если (событие == ескейп){
+//     Закрой(открытыйЩасПопап)
+//     }
+//     }
+ function escClose(evt) {
+     
+     if(evt.key === "Escape") {
+        newItemImage.classList.remove('popup-image_opened');
+        popup.classList.remove('popup_opened');
+        newItemForm.classList.remove('popup_opened');
+     }
+ }
 
+
+ document.addEventListener('keydown',escClose )
 newItemImageClose.addEventListener('click', closeItemImage);
 newItemPopupContainer.addEventListener('submit', submitFormCard);
 newItemForm.addEventListener('click', createItemFormToggle);
 openNewItemFormButton.addEventListener('click', createItemFormToggle);
 closeNewItemFormButton.addEventListener('click', createItemFormToggle);
+newItemImage.addEventListener('click', closeItemImage);

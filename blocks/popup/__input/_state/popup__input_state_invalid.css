@@ -1,0 +1,4 @@
+.popup__input_state_invalid {
+    border-bottom: 2px solid red;
+    margin: 0px 0 6px 0;
+}

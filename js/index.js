@@ -35,6 +35,8 @@ function handleFormSubmit(textContent) {
 
 }
 
+
+
 formElement.addEventListener('submit', handleFormSubmit);
 
 openPopupButton.addEventListener('click', switchPopupToggle);

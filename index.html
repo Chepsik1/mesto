@@ -12,7 +12,7 @@
     <div class="page">
         <header class="header">
             <img src="./images/logo.svg" alt="Логотип" class="header__logo">
-          
+
         </header>
         <main class="content">
             <section class="profile">
@@ -27,20 +27,20 @@
                 <button type="button" class="profile__add-button"></button>
             </section>
             <section class="elements">
-             
+
                 <template id="cards">
                     <div class="elements__element">
                         <button type="button" class="elements__element-trash"></button>
-                        <img class="elements__element-image" src="" alt="">                   
+                        <img class="elements__element-image" src="" alt="">
                         <div class="elements__element-rectangle">
                             <p class="elements__element-title"></p>
                             <button type="button" class="elements__element-like"></button>
                         </div>
                     </div>
-                    
+
                 </template>
-                
-            
+
+
 
             </section>
         </main>
@@ -49,38 +49,54 @@
         </footer>
     </div>
     <div class="popup">
-        <form class="popup__container" name="popup-container">
+        <form class="popup__container" name="popup-container" novalidate>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <input class="popup__input" name="username" id="username" type="text" value="Жак-Ив Кусто">
-            <input class="popup__input" name="occupation" id="occupation" type="text" value="Исследователь океана">
+            <input class="popup__input" required minlength="2" maxlength="40" name="username" id="username" type="text"
+                value="Жак-Ив Кусто" autocomplete="off">
+            <span id="username-error" class="error"></span>
+            <input class="popup__input" required minlength="2" maxlength="200" name="occupation" id="occupation"
+                type="text" value="Исследователь океана">
+            <span id="occupation-error" class="error"></span>
             <button type="submit" class='popup__save'>Сохранить</button>
         </form>
         <button type="button" class='popup__close'></button>
     </div>
+
+
+
+
     <div class="new-item-popup">
-        <form class="new-item-popup__container" name="new-item-popup-container">
+        <form class="new-item-popup__container" name="new-item-popup-container" novalidate>
             <h3 class="new-item-popup__title">Новое место</h3>
-            <input class="new-item-popup__input" name="placename" id="placename" type="text" value="" placeholder="Название">
-            <input class="new-item-popup__input" name="linkpicture" id="linkpicture" type="text" value="" placeholder="Ссылка на картинку">
-            <button type="submit" class='new-item-popup__save'>Создать</button>
+            <input class="popup__input" required minlength="2" maxlength="30" name="placename" id="placename"
+                type="text" value="" placeholder="Название" autocomplete="off">
+            <span id="placename-error" class="error"></span>
+            <input class="popup__input" required name="linkpicture" id="linkpicture" type="url" value=""
+                placeholder="Ссылка на картинку" autocomplete="off">
+            <span id="linkpicture-error" class="error"></span>
+
+            <button type="submit" class='popup__save'>Создать</button>
         </form>
         <button type="button" class='new-item-popup__close'></button>
     </div>
 
     <div class="popup-image">
-        
-       <div class="popup-image__block">
-        <button type="button" class='popup-image__close'></button>
-        
-        <img class="popup-image__foto" src="" alt="">
-        <p class="popup-image__title"></p>
-        
+
+        <div class="popup-image__block">
+            <button type="button" class='popup-image__close'></button>
+
+            <img class="popup-image__foto" src="" alt="">
+            <p class="popup-image__title"></p>
+
+        </div>
+
+
     </div>
-    
-    
-    </div>
+
+
     <script src="./js/index.js"></script>
     <script src="./js/new-item-form.js"></script>
+    <script src="./js/validate.js"></script>
 
 </body>
 

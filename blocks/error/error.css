@@ -1,0 +1,10 @@
+.error {
+  font-size: 12px;
+  line-height: 14px;
+  color: #FF0000;
+  display: flex;
+  margin: 0px 0px 0px 36px;
+  box-sizing: border-box;
+
+
+}
