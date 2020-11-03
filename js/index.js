@@ -48,20 +48,25 @@ const initialCards = [{
 //Вставка масива на страницу
 function addCardsTemplate() {
     for (i = 0; i < initialCards.length; i += 1) {
+    
         const cardTemplate = generateCard(initialCards[i].name, 'фото', initialCards[i].link);
         elements.append(cardTemplate);
+      
     }
 }
 addCardsTemplate();
 
 //Добавление карточки на страницу
 function addCardTemplate() {
+   
     const cardTemplate = generateCard(nameImege.value, 'фото', linkImage.value);
+    
     elements.prepend(cardTemplate);
+    
 }
 
 function generateCard(title, alt, imageLink) {
-
+   
     const cardTemplate = card.cloneNode(true);
     const cardImage = cardTemplate.querySelector('.elements__element-image');
     cardTemplate.querySelector('.elements__element-title').textContent = title;
@@ -76,6 +81,7 @@ function generateCard(title, alt, imageLink) {
     like.addEventListener("click", function (evt) {
         evt.target.classList.toggle("elements__element-like_active");
     });
+
     closePopup(newItemForm);
     const trash = cardTemplate.querySelector(".elements__element-trash");
     trash.addEventListener("click", function (evt) {
@@ -88,7 +94,7 @@ function generateCard(title, alt, imageLink) {
         titleImageFoto.textContent = title;
         openPopup(newItemImage);
     });
-
+console.log(initialCards);
     return cardTemplate;
 
 }
