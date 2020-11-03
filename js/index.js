@@ -61,17 +61,22 @@ function addCardTemplate() {
 }
 
 function generateCard(title, alt, imageLink) {
+
     const cardTemplate = card.cloneNode(true);
     const cardImage = cardTemplate.querySelector('.elements__element-image');
     cardTemplate.querySelector('.elements__element-title').textContent = title;
     cardImage.alt = alt;
     cardImage.src = imageLink;
+    const initialCards = {
+        name: title,
+        link: imageLink,
+    }
 
     const like = cardTemplate.querySelector(".elements__element-like");
     like.addEventListener("click", function (evt) {
         evt.target.classList.toggle("elements__element-like_active");
     });
-
+    closePopup(newItemForm);
     const trash = cardTemplate.querySelector(".elements__element-trash");
     trash.addEventListener("click", function (evt) {
         evt.target.closest('.elements__element').remove();
@@ -85,6 +90,7 @@ function generateCard(title, alt, imageLink) {
     });
 
     return cardTemplate;
+
 }
 
 
@@ -106,9 +112,9 @@ function closeEsc(evt) {
 }
 
 function closeOnOverlay(evt) {
-    const popupOpened = document.querySelector('.popup_opened');
+    const popupActive = document.querySelector('.popup_opened');
     if (evt.target === evt.currentTarget) {
-        closePopup(popupOpened);
+        closePopup(popupActive);
     }
 
 }
@@ -121,16 +127,6 @@ function handleFormSubmit(textContent) {
 
 }
 
-function submitFormCard(textContent) {
-    textContent.preventDefault();
-    initialCards.textContent = linkImage.value;
-    initialCards.textContent = nameImege.value;
-    initialCards.push(linkImage.value + nameImege.value);
-    initialCards.link = linkImage.value;
-    initialCards.name = nameImege.value;
-    closePopup(newItemForm);
-    addCardTemplate();
-}
 
 formElement.addEventListener('submit', handleFormSubmit);
 openPopupButton.addEventListener('click', () => openPopup(popupProfil));
@@ -138,7 +134,7 @@ closePopupButton.addEventListener('click', () => closePopup(popupProfil));
 openNewItemFormButton.addEventListener('click', () => openPopup(newItemForm));
 closeNewItemFormButton.addEventListener('click', () => closePopup(newItemForm));
 newItemImageClose.addEventListener('click', () => closePopup(newItemImage));
-newItemPopupContainer.addEventListener('submit', submitFormCard);
+newItemPopupContainer.addEventListener('submit', addCardTemplate);
 popupProfil.addEventListener('click', closeOnOverlay);
 newItemForm.addEventListener('click', closeOnOverlay);
 newItemImage.addEventListener('click', closeOnOverlay);
