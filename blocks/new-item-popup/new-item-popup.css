@@ -10,7 +10,6 @@
     display: flex;
     visibility: hidden;
     opacity: 0;
-    transition: opacity .9s, visibility 1s linear .3s;
     position: fixed;
     top: 0;
     left: 0;
