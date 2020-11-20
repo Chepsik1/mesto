@@ -3,7 +3,6 @@ import {FormValidator } from "./FormValidator.js"
 export const titleImageFoto = document.querySelector('.popup-image__title');
 export const newItemImage = document.querySelector('.popup-image');
 export const imageFoto = document.querySelector('.popup-image__foto');
-const imageCard = document.querySelector('.elements__element-image');
 const popupProfil = document.querySelector('.popup');
 const openPopupButton = document.querySelector('.profile__addit-button');
 const closePopupButton = document.querySelector('.popup__close');
