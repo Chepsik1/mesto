@@ -1,5 +1,10 @@
-import { Card } from './Card.js';
-import {FormValidator } from "./FormValidator.js"
+import {
+    Card
+} from './Card.js';
+import {
+    FormValidator
+} from "./FormValidator.js"
+
 export const titleImageFoto = document.querySelector('.popup-image__title');
 export const newItemImage = document.querySelector('.popup-image');
 export const imageFoto = document.querySelector('.popup-image__foto');
@@ -46,38 +51,48 @@ const initialCards = [{
 ];
 
 
-const formValidator = new FormValidator(
-    'form',
+const formValidatorUser = new FormValidator(
+    '.popup__container',
+    '.popup__input',
+    '.popup__save',
+    'popup__save_invalid',
+    'popup__state',
+);
+const formValidatorCard = new FormValidator(
+    '.new-item-popup__container',
     '.popup__input',
     '.popup__save',
     'popup__save_invalid',
     'popup__input_state_invalid',
-  );
-    formValidator.enableValidation();
+    
+);
+formValidatorUser.enableValidation();
+formValidatorCard.enableValidation();
+
 
 
 //Вставка масива на страницу
 const addCardsTemplate = () => {
-   // const elements = document.querySelector('.elements');
-    const items = initialCards.map(elements => generateCard(elements));
-  
+    // const elements = document.querySelector('.elements');
+    const items = initialCards.map(element => generateCard(element));
+
     elements.append(...items);
-   
-  };
-  
-  //Добавление карточки на страницу
-    const generateCard = (initialCards) => {
-       
+
+};
+
+//Добавление карточки на страницу
+const generateCard = (initialCards) => {
+
     const cardTemplate = new Card(initialCards.name, initialCards.link, '#cards');
-  // console.log(listCards)
-  
+    // console.log(listCards)
+
     return cardTemplate.render();
 
- 
 
-  }
 
-  addCardsTemplate();
+}
+
+addCardsTemplate();
 
 //Добавление карточки на страницу
 function addCardTemplate(evt) {
@@ -85,9 +100,9 @@ function addCardTemplate(evt) {
     const cardTemplate = generateCard({
         name: nameImege.value,
         link: linkImage.value
-      });
+    });
 
-elements.prepend(cardTemplate);
+    elements.prepend(cardTemplate);
     closePopup(newItemForm);
 }
 
@@ -116,8 +131,8 @@ function closeOnOverlay(evt) {
 
 }
 
-function handleFormSubmit(textContent) {
-    textContent.preventDefault();
+function handleFormSubmit(evt) {
+    evt.preventDefault();
     nameProfil.textContent = nameInput.value;
     profileOccupation.textContent = jobInput.value;
     closePopup(popupProfil);
@@ -125,15 +140,14 @@ function handleFormSubmit(textContent) {
 }
 
 
- formElement.addEventListener('submit', handleFormSubmit);
- openPopupButton.addEventListener('click', () => openPopup(popupProfil));
+formElement.addEventListener('submit', handleFormSubmit);
+openPopupButton.addEventListener('click', () => openPopup(popupProfil));
 //  imageCard.addEventListener('click', openPopup(newItemImage));
- closePopupButton.addEventListener('click', () => closePopup(popupProfil));
- openNewItemFormButton.addEventListener('click', () => openPopup(newItemForm));
- closeNewItemFormButton.addEventListener('click', () => closePopup(newItemForm));
- newItemImageClose.addEventListener('click', () => closePopup(newItemImage));
- newItemPopupContainer.addEventListener('submit', addCardTemplate);
- popupProfil.addEventListener('click', closeOnOverlay);
- newItemForm.addEventListener('click', closeOnOverlay);
- newItemImage.addEventListener('click', closeOnOverlay);
-
+closePopupButton.addEventListener('click', () => closePopup(popupProfil));
+openNewItemFormButton.addEventListener('click', () => openPopup(newItemForm));
+closeNewItemFormButton.addEventListener('click', () => closePopup(newItemForm));
+newItemImageClose.addEventListener('click', () => closePopup(newItemImage));
+newItemPopupContainer.addEventListener('submit', addCardTemplate);
+popupProfil.addEventListener('click', closeOnOverlay);
+newItemForm.addEventListener('click', closeOnOverlay);
+newItemImage.addEventListener('click', closeOnOverlay);

@@ -1,17 +1,27 @@
-import {imageFoto} from "./index.js";
-import {titleImageFoto} from "./index.js";
-import {openPopup} from "./index.js";
-import {newItemImage} from "./index.js";
+import {
+  imageFoto
+} from "./index.js";
+import {
+  titleImageFoto
+} from "./index.js";
+import {
+  openPopup
+} from "./index.js";
+import {
+  newItemImage
+} from "./index.js";
+
+
 export class Card {
-    constructor(name, link, templateSelector) {
-      this._name = name;
-      this._link = link;
-      this._template = document.querySelector(templateSelector).content.querySelector('.elements__element');
-    };
+  constructor(name, link, templateSelector) {
+    this._name = name;
+    this._link = link;
+    this._template = document.querySelector(templateSelector).content.querySelector('.elements__element');
+  };
 
   render() {
     //клонирование котейнера
-    
+
     this._card = this._template.cloneNode(true);
     this._cardImage = this._card.querySelector('.elements__element-image');
     this._cardText = this._card.querySelector('.elements__element-title');
@@ -29,22 +39,22 @@ export class Card {
     this._cardImage.addEventListener('click', () => this._openCardImg(this._link, this._name));
 
     return this._card;
-  }; 
-  
-    _remove () {
+  };
+
+  _remove() {
     this._card.remove();
-   
+
   };
 
   _like() {
     this._cardLike.classList.toggle('elements__element-like_active');
   };
 
-  _openCardImg(){
+  _openCardImg() {
     imageFoto.src = this._link;
     imageFoto.alt = this._name;
     titleImageFoto.textContent = this._name;
-    
-     openPopup(newItemImage);
-}
+
+    openPopup(newItemImage);
+  }
 }
