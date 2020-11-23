@@ -64,7 +64,7 @@ const formValidatorCard = new FormValidator(
     '.popup__save',
     'popup__save_invalid',
     'popup__input_state_invalid',
-    
+
 );
 formValidatorUser.enableValidation();
 formValidatorCard.enableValidation();

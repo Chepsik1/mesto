@@ -1,6 +1,6 @@
 export class FormValidator {
     constructor(formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
-       
+
         this._formSelector = formSelector;
         this._formElement = document.querySelectorAll(this._formSelector);
         // console.log(this._formSelector);
@@ -63,13 +63,13 @@ export class FormValidator {
 
     enableValidation() {
         const formElements = Array.from(document.querySelectorAll(this._formSelector));
-       
+
         formElements.forEach((form) => {
             form.addEventListener('submit', (evt) => {
                 evt.preventDefault();
-               
+
             });
-        
+
             this._setEventListener(form);
 
         })
