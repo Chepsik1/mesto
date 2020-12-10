@@ -5,12 +5,8 @@ import {
   titleImageFoto
 } from "./index.js";
 import {
-  openPopup
-} from "./index.js";
-import {
-  newItemImage
-} from "./index.js";
-
+  Popup
+} from "./Popup.js";
 
 export class Card {
   constructor(name, link, templateSelector) {
@@ -36,7 +32,7 @@ export class Card {
     // Обработчики
     this._cardRemove.addEventListener('click', () => this._remove());
     this._cardLike.addEventListener('click', () => this._like());
-    this._cardImage.addEventListener('click', () => this._openCardImg(this._link, this._name));
+    this._cardImage.addEventListener('click', () => this._handleCardClick());
 
     return this._card;
   };
@@ -50,11 +46,12 @@ export class Card {
     this._cardLike.classList.toggle('elements__element-like_active');
   };
 
-  _openCardImg() {
+  _handleCardClick() {
+    const popUpImage = new Popup('.popup-image');
     imageFoto.src = this._link;
     imageFoto.alt = this._name;
     titleImageFoto.textContent = this._name;
-
-    openPopup(newItemImage);
+    popUpImage.open(this._link, this._name);
+    console.log(popUpImage)
   }
 }

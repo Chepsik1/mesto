@@ -1,9 +1,8 @@
 export class FormValidator {
     constructor(formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
-
+       
         this._formSelector = formSelector;
         this._formElement = document.querySelectorAll(this._formSelector);
-        // console.log(this._formSelector);
         this._inputSelector = inputSelector;
         this._submitButtonSelector = submitButtonSelector;
         this._inactiveButtonClass = inactiveButtonClass;
@@ -11,7 +10,7 @@ export class FormValidator {
         this._errorClass = errorClass;
 
     }
-
+    
     _showError(formElement, input) {
         const errorElement = formElement.querySelector(`#${input.id}-error`);
         errorElement.textContent = input.validationMessage;
@@ -63,13 +62,13 @@ export class FormValidator {
 
     enableValidation() {
         const formElements = Array.from(document.querySelectorAll(this._formSelector));
-
+       
         formElements.forEach((form) => {
             form.addEventListener('submit', (evt) => {
                 evt.preventDefault();
-
+               
             });
-
+        
             this._setEventListener(form);
 
         })
