@@ -1,23 +1,25 @@
+import './pages/index.css';
 import {
     Card
-} from './Card.js';
+} from './js/Card.js';
 import {
     FormValidator
-} from "./FormValidator.js"
+} from "./js/FormValidator.js"
 import {
     PopupWithForm
-} from './PopupWithForm.js';
+} from './js/PopupWithForm.js';
 import {
     UserInfo
-} from './UserInfo.js';
+} from './js/UserInfo.js';
 
 import {
     Section
-} from './Section.js';
+} from './js/Section.js';
 
 import {
     PopupWithImage
-} from './PopupWithImage.js';
+} from './js/PopupWithImage.js';
+
 const buttonSave = document.querySelector('.popup__save');
 export const titleImageFoto = document.querySelector('.popup-image__title');
 export const newItemImage = document.querySelector('.popup-image');

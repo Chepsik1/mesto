@@ -1,9 +1,9 @@
 import {
   imageFoto
-} from "./index.js";
+} from "../index.js";
 import {
   titleImageFoto
-} from "./index.js";
+} from "../index.js";
 import {
   Popup
 } from "./Popup.js";
