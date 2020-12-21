@@ -1,9 +1,9 @@
-import {
-  imageFoto
-} from "../index.js";
+// import {
+//   imageFoto
+// } from "../index.js";
 import {
   titleImageFoto
-} from "../index.js";
+} from "../pages/index.js";
 import {
   Popup
 } from "./Popup.js";
@@ -14,11 +14,15 @@ export class Card {
     this._link = link;
     this._template = document.querySelector(templateSelector).content.querySelector('.elements__element');
   };
-
+  _getTemplate() {
+    const cardElement = this._template.cloneNode(true);
+    return cardElement;
+  }
+  
   render() {
     //клонирование котейнера
 
-    this._card = this._template.cloneNode(true);
+    this._card = this._getTemplate();
     this._cardImage = this._card.querySelector('.elements__element-image');
     this._cardText = this._card.querySelector('.elements__element-title');
     this._cardRemove = this._card.querySelector('.elements__element-trash');
@@ -29,17 +33,20 @@ export class Card {
     this._cardImage.alt = this._name;
     this._cardText.textContent = this._name;
 
+    this._setEventListeners();
+    return this._card;
+  };
+  _setEventListeners(){
     // Обработчики
     this._cardRemove.addEventListener('click', () => this._remove());
     this._cardLike.addEventListener('click', () => this._like());
     this._cardImage.addEventListener('click', () => this._handleCardClick());
-
-    return this._card;
-  };
+   
+ }
 
   _remove() {
     this._card.remove();
-
+    this._card = null;
   };
 
   _like() {
@@ -48,10 +55,13 @@ export class Card {
 
   _handleCardClick() {
     const popUpImage = new Popup('.popup-image');
-    imageFoto.src = this._link;
-    imageFoto.alt = this._name;
+    this._imagePhoto = document.querySelector('.popup-image__foto');
+    this._imagePhoto.src = this._link;
+    this._imagePhoto.alt = this._name;
     titleImageFoto.textContent = this._name;
     popUpImage.open(this._link, this._name);
-    console.log(popUpImage)
+   
+   
   }
+  
 }
