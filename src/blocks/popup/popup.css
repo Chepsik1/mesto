@@ -5,7 +5,7 @@
 @import url(./__close/popup__close.css);
 
 .popup {
-    pointer-events: none; 
+    pointer-events: none;
     display: flex;
     visibility: hidden;
     opacity: 0;
