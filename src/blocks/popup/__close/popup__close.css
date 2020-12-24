@@ -1,9 +1,7 @@
 .popup__close {
-
     border: none;
     height: 40.7px;
     width: 40.7px;
-    /* background: none; */
     position: relative;
     top: -183px;
     right: 3px;

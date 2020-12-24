@@ -20,7 +20,6 @@
 }
 
 .popup__save:disabled {
-
     box-sizing: border-box;
     border-radius: 2px;
     background: #E5E5E5;
