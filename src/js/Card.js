@@ -1,24 +1,19 @@
-// import {
-//   imageFoto
-// } from "../index.js";
-import {
-  titleImageFoto
-} from "../pages/index.js";
-import {
-  Popup
-} from "./Popup.js";
-
 export class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, handleCardClick) {
     this._name = name;
     this._link = link;
-    this._template = document.querySelector(templateSelector).content.querySelector('.elements__element');
+    this._template = templateSelector;
+    this._handleCardClick = handleCardClick;
   };
   _getTemplate() {
-    const cardElement = this._template.cloneNode(true);
+    const cardElement = document
+      .querySelector(this._template)
+      .content
+      .firstElementChild
+      .cloneNode(true);;
     return cardElement;
   }
-  
+
   render() {
     //клонирование котейнера
 
@@ -36,15 +31,16 @@ export class Card {
     this._setEventListeners();
     return this._card;
   };
-  _setEventListeners(){
+  _setEventListeners() {
     // Обработчики
     this._cardRemove.addEventListener('click', () => this._remove());
     this._cardLike.addEventListener('click', () => this._like());
-    this._cardImage.addEventListener('click', () => this._handleCardClick());
-   
- }
+    this._cardImage.addEventListener('click', () => this._handleCardClick(this._cardImage));
+
+  }
 
   _remove() {
+
     this._card.remove();
     this._card = null;
   };
@@ -53,15 +49,4 @@ export class Card {
     this._cardLike.classList.toggle('elements__element-like_active');
   };
 
-  _handleCardClick() {
-    const popUpImage = new Popup('.popup-image');
-    this._imagePhoto = document.querySelector('.popup-image__foto');
-    this._imagePhoto.src = this._link;
-    this._imagePhoto.alt = this._name;
-    titleImageFoto.textContent = this._name;
-    popUpImage.open(this._link, this._name);
-   
-   
-  }
-  
 }
