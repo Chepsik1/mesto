@@ -73,14 +73,14 @@
     <div class="new-item-popup">
         <form class="new-item-popup__container" name="new-item-popup-container" novalidate>
             <h3 class="new-item-popup__title">Новое место</h3>
-            <input class="new-item-popup__input" required minlength="2" maxlength="30" name="placename" id="placename"
+            <input class="popup__input new-item-popup__input" required minlength="2" maxlength="30" name="placename" id="placename"
                 type="text" value="" placeholder="Название" autocomplete="off">
             <span id="placename-error" class="error"></span>
-            <input class="new-item-popup__input" required name="linkpicture" id="linkpicture" type="url" value=""
+            <input class="popup__input new-item-popup__input" required name="linkpicture" id="linkpicture" type="url" value=""
                 placeholder="Ссылка на картинку" autocomplete="off">
             <span id="linkpicture-error" class="error"></span>
 
-            <button class='popup__save' type="submit">Создать</button>
+            <button class='popup__save new-item-popup__save' type="submit">Создать</button>
         </form>
         <button type="button" class='new-item-popup__close popup__close'></button>
     </div>
