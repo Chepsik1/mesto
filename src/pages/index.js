@@ -1,28 +1,28 @@
 import './index.css';
 import {
     Card
-} from '../js/Card.js';
+} from '../components/Card.js';
 import {
     FormValidator
-} from "../js/FormValidator.js"
+} from "../components/FormValidator.js"
 import {
     PopupWithForm
-} from '../js/PopupWithForm.js';
+} from '../components/PopupWithForm.js';
 import {
     UserInfo
-} from '../js/UserInfo.js';
+} from '../components/UserInfo.js';
 
 import {
     Section
-} from '../js/Section.js';
+} from '../components/Section.js';
 
 import {
     PopupWithImage
-} from '../js/PopupWithImage.js';
+} from '../components/PopupWithImage.js';
 
 import {
     Popup
-} from '../js/Popup.js';
+} from '../components/Popup.js';
 const elementImg = document.querySelector('.elements__element-image')
 const buttonSave = document.querySelector('.popup__save');
 export const titleImageFoto = document.querySelector('.popup-image__title');
