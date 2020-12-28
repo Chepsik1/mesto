@@ -25,7 +25,7 @@ export class PopupWithForm extends Popup {
     _submitHandler(evt) {
         evt.preventDefault();
         this._handleSubmit(this._getInputValues());
-        this.close();
+        // this.close();
         
 
     }
@@ -33,7 +33,7 @@ export class PopupWithForm extends Popup {
     setEventListeners() {
         this._selector.addEventListener('submit', (evt) => {
             
-            return this._submitHandler(evt);
+             this._submitHandler(evt);
 
         })
 
@@ -43,9 +43,9 @@ export class PopupWithForm extends Popup {
 
     close() {
         super.close();
-        this.form.reset();
-        const buttonElement = this.form.querySelector('.popup__save')
-        buttonElement.disabled = true;
+        // this.form.reset();
+        // const buttonElement = this.form.querySelector('#new-item-popup-save')
+        // buttonElement.disabled = true;
 
 
     }

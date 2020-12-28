@@ -25,7 +25,7 @@ import {
 } from '../components/Popup.js';
 const elementImg = document.querySelector('.elements__element-image')
 const buttonSave = document.querySelector('.popup__save');
-export const titleImageFoto = document.querySelector('.popup-image__title');
+ const titleImageFoto = document.querySelector('.popup-image__title');
 export const newItemImage = document.querySelector('.popup-image');
 export const imageFoto = document.querySelector('.popup-image__foto');
 const openPopupButton = document.querySelector('.profile__addit-button');
@@ -87,7 +87,7 @@ formValidatorUser.enableValidation();
 formValidatorCard.enableValidation();
 
 function cardRender(data) {
-    const cards = new Card(data.name, data.link, '#cards',
+    const cards = new Card(data, '#cards',
 
         () => {
             const popUpImage = new Popup('.popup-image');
@@ -126,7 +126,7 @@ const handleCardPopup = new PopupWithForm('.new-item-popup', (data) => {
     // elements.prepend(cardElement);
     addSection.addItem(cardElement);
     buttonSave.addEventListener('click', () => handleCardPopup._getInputValues());
-
+    handleCardPopup.close()
 })
 
 handleCardPopup.setEventListeners();
@@ -156,7 +156,9 @@ const handleProfilePopup = new PopupWithForm('.popup', () => {
     handleUserInfo.setUserInfo({
         profileName: nameInput.value,
         profileAbout: jobInput.value
+       
     });
+    handleProfilePopup.close()
 });
 
 
