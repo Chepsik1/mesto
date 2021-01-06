@@ -85,11 +85,8 @@ function cardRender(data) {
     const cards = new Card(data, '#cards',
 
         () => {
-            const imagePhoto = document.querySelector('.popup-image__foto');
-            imagePhoto.src = data.link;
-            imagePhoto.alt = data.name;
-            titleImageFoto.textContent = data.name;
             popupImg.open(data.link, data.name);
+
         })
     return cards;
 }
@@ -99,7 +96,7 @@ const addSection = new Section({
         renderer: (data) => {
             const сard = cardRender(data);
             const cardElement = сard.render();
-            addSection.addItem(cardElement, data);
+            addSection.addItem(cardElement, true);
 
 
         }
@@ -115,6 +112,7 @@ const handleCardPopup = new PopupWithForm('.new-item-popup', (data) => {
     const cardElement = addCard.render();
     addSection.addItem(cardElement);
     handleCardPopup.close()
+
 })
 
 handleCardPopup.setEventListeners();
@@ -140,14 +138,17 @@ const handleUserInfo = new UserInfo({
 });
 
 //экземпляр класса с формой для попапа редкатирования профиля
-const handleProfilePopup = new PopupWithForm('.popup', () => {
-    handleUserInfo.setUserInfo({
-        profileName: username.value,
-        profileAbout: occupation.value
+const handleProfilePopup = new PopupWithForm('.popup', (data) => {
 
+    handleUserInfo.setUserInfo({
+        profileName: data.username,
+        profileAbout: data.occupation
     });
+
     handleProfilePopup.close()
+
 });
+
 
 handleProfilePopup.setEventListeners();
 openPopupButton.addEventListener('click', addProfileUser);

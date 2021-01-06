@@ -11,13 +11,13 @@ export class UserInfo {
         const userInfoObj = {};
         userInfoObj.name = this._name.textContent;
         userInfoObj.about = this._about.textContent;
-        
+
         return userInfoObj;
     }
 
     setUserInfo(object) {
         this._name.textContent = object.profileName;
         this._about.textContent = object.profileAbout;
-        
+
     }
 }

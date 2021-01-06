@@ -5,14 +5,16 @@ import {
 export class PopupWithImage extends Popup {
     constructor(selector) {
         super(selector);
-        this._text = this._selector.querySelector('.elements__element-title');
-        this._image = this._selector.querySelector('.elements__element-image');
+        this._text = this._selector.querySelector('.popup-image__title');
+        this._image = this._selector.querySelector('.popup-image__foto');
 
     }
 
-    open(image, text) {
-        this._text = text;
-        this._image = image;
+    open(link, name) {
+        this._image.src = link;
+        this._image.alt = name;
+        this._text.textContent = name;
+
         super.open();
 
     }
