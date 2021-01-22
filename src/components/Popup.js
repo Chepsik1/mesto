@@ -3,6 +3,7 @@ export class Popup {
         this._selector = document.querySelector(selector);
         this._closeButton = this._selector.querySelector('.popup__close');
         this._handleEscClose = this._handleEscClose.bind(this);
+        this._submitButton = this._selector.querySelector('.popup__save');
     }
     open() {
         // открытие  попапа
@@ -32,5 +33,12 @@ export class Popup {
     setEventListeners() {
         this._closeButton.addEventListener('click', this.close.bind(this));
         this._selector.addEventListener('click', this._handleOverlayClose.bind(this));
+    }
+    dataLoading(load) {
+        if (load) {
+            this._submitButton.textContent = "Сохранение..."
+        } else {
+            this._submitButton.textContent = "Сохранить"
+        }
     }
 }

@@ -1,3 +1,6 @@
+@import url(./_hidden/elements__element-trash_hidden.css);
+@import url(./_visible/elements__element-trash_visible.css);
+
 .elements__element-trash {
     height: 19.3px;
     width: 18px;

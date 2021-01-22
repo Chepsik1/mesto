@@ -4,6 +4,7 @@
 @import url(./__element-rectangle/elements__element-rectangle.css);
 @import url(./__element-title/elements__element-title.css);
 @import url(./__element-trash/elements__element-trash.css);
+@import url(./__like-number/elements__like-number.css);
 
 .elements {
     max-width: 882px;

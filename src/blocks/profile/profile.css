@@ -5,6 +5,7 @@
 @import url(./__addit-button/profile__addit-button.css);
 @import url(./__info/profile__info.css);
 @import url(./__button-name/profile__button-name.css);
+@import url(./__icon/profile__icon.css);
 
 .profile {
     max-width: 882px;
