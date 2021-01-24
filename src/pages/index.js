@@ -22,6 +22,9 @@ import {
 import {
     Api
 } from '../components/Api.js';
+import {
+    PopupWithSubmit
+} from '../components/PopupWithSubmit.js';
 
 
 export const newItemImage = document.querySelector('.popup-image');
@@ -70,57 +73,64 @@ const api = new Api({
 
 });
 
+const userInfo = new UserInfo({
+    profileNameSelector: '.profile__name',
+    profileAboutSelector: '.profile__occupation',
+    avatar: '.profile__avatar'
+});
+
+const deleteCardPopup = new PopupWithSubmit('.popup-del', () => {}) //пустая функция);
+deleteCardPopup.setEventListeners();
+
+const popupProfile = new PopupWithForm('.popup', (res) => {
+
+    popupProfile.dataLoading(true);
+    api.updateInfo({
+            about: res.occupation,
+            name: res.username,
+        })
+        .then((data) => {
+            userInfo.setUserInfo(data);
+            profilName.textContent = data.name;
+            profilAbout.textContent = data.about;
+            popupProfile.close();
+        })
+
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            popupProfile.dataLoading(false)
+        })
+
+});
+
+
 Promise.all([
-        api.getInfoAndAvatar()
+        api.getInfoAndAvatar(),
+        api.getCards()
     ])
     .then((value) => {
-        const [userData] = value
-        api.getInfoAndAvatar()
-            .then((data) => {
-                const handleUserInfo = new UserInfo({
-                    profileNameSelector: '.profile__name',
-                    profileAboutSelector: '.profile__occupation',
-                    avatar: '.profile__avatar'
-                });
-                profilName.textContent = data.name;
-                profilAbout.textContent = data.about;
-                profilAvatar.src = data.avatar;
+        const [userData, item] = value
 
-                const addProfileUser = () => {
-                    handleUserInfo.getUserInfo(data);
-                    nameInput.value = profilName.textContent;
-                    jobInput.value = profilAbout.textContent;
-                    handleProfilePopup.open();
-                }
+        profilName.textContent = userData.name;
+        profilAbout.textContent = userData.about;
+        profilAvatar.src = userData.avatar;
 
-                const handleProfilePopup = new PopupWithForm('.popup', (res) => {
-                    handleProfilePopup.dataLoading(true);
-                    api.updateInfo({
-                            about: res.occupation,
-                            name: res.username,
-                        })
-                        .then((data) => {
-                            handleUserInfo.setUserInfo(data);
-                            profilName.textContent = data.name;
-                            profilAbout.textContent = data.about;
-                            handleProfilePopup.close();
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        })
-                });
-                handleProfilePopup.setEventListeners();
-                openPopupButton.addEventListener('click', addProfileUser);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-        const handleCardPopup = new PopupWithForm('.new-item-popup', (data) => {
-            data.name = data['placename'],
-                data.link = data['linkpicture'],
-                data.owner = userData._id;
-            handleCardPopup.dataLoading(true);
-            api.newCard({
+        function addProfileUser() {
+            userInfo.getUserInfo(userData);
+            nameInput.value = profilName.textContent;
+            jobInput.value = profilAbout.textContent;
+            popupProfile.open();
+        }
+
+        popupProfile.setEventListeners();
+        openPopupButton.addEventListener('click', addProfileUser);
+
+        const cardPopupHandle = new PopupWithForm('.new-item-popup', (data) => {
+            cardPopupHandle.dataLoading(true);
+
+            api.addNewCard({
                     name: data['placename'],
                     link: data['linkpicture']
                 })
@@ -132,44 +142,18 @@ Promise.all([
                 .catch((err) => {
                     console.log(err);
                 })
-            handleCardPopup.close();
+                .finally(() => {
+                    cardPopupHandle.dataLoading(false)
+                })
+            cardPopupHandle.close();
         })
-        handleCardPopup.setEventListeners();
+        cardPopupHandle.setEventListeners();
 
-        //открытие попапа аватара и редактирование авы
-        addAvatarButton.addEventListener('click', () => {
-            const avatar = new PopupWithForm('.popup-avatar', (res) => {
-                avatar.dataLoading(true);
-                api.updateAvatar({
-                        avatar: res.linkavatar
-                    })
-                    .then((data) => {
-                        profilAvatar.src = data.avatar;
-                        avatar.close();
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            })
-            avatar.setEventListeners();
-            avatar.open();
-        })
-        api.getCards()
-            .then((data) => {
-                addSection.renderItems(data);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-
-        const addSection = new Section({
-                renderer: (data) => {
-                    const сard = cardRender(data);
-                    const cardElement = сard.render();
-                    addSection.addItem(cardElement, true);
-                }
-            },
-            '.elements');
+        // //открытие попапа редактирвоания профиля и заполнение 
+        const addProfileInfo = () => {
+            cardPopupHandle.open();
+        }
+        openNewItemFormButton.addEventListener('click', addProfileInfo);
 
         //экземпляр класса с формой для попапа редкатирования 
         function cardRender(data) {
@@ -179,18 +163,17 @@ Promise.all([
                     popupImg.open(data.link, data.name);
                 },
                 function delCardServer(card) {
-                    const deleteCard = new PopupWithForm('.popup-del', () => {
+                    deleteCardPopup.open();
+                    deleteCardPopup.handleSubmit(() => {
                         api.deleteCard(data._id)
                             .then(() => {
                                 cards.carddelete(card);
-                                deleteCard.close();
+                                deleteCardPopup.close();
                             })
                             .catch((err) => {
                                 console.log(err);
                             })
                     })
-                    deleteCard.setEventListeners();
-                    deleteCard.open();
                 },
                 data.owner._id,
                 userData._id,
@@ -198,7 +181,7 @@ Promise.all([
                 () => {
                     api.countLikeApi(data)
                         .then((data) => {
-                            data.likes;
+                            cards.addLikeOnRequest()
                         })
                         .catch((err) => {
                             console.log(err);
@@ -207,7 +190,7 @@ Promise.all([
                 () => {
                     api.deleteLike(data)
                         .then((data) => {
-                            data.likes;
+                            cards.removeLikeOnRequest()
                         })
                         .catch((err) => {
                             console.log(err);
@@ -216,9 +199,34 @@ Promise.all([
             return cards;
         }
 
-        // //открытие попапа редактирвоания профиля и заполнение 
-        const addProfileInfo = () => {
-            handleCardPopup.open();
-        }
-        openNewItemFormButton.addEventListener('click', addProfileInfo);
+        const addSection = new Section({
+                renderer: (data) => {
+                    const сard = cardRender(data);
+                    const cardElement = сard.render();
+                    addSection.addItem(cardElement, true);
+                }
+            },
+            '.elements');
+        addSection.renderItems(item);
     })
+
+//открытие попапа аватара и редактирование авы
+const avatarPopupForm = new PopupWithForm('.popup-avatar', (res) => {
+    avatarPopupForm.dataLoading(true);
+    api.updateAvatar({
+            avatar: res.linkavatar
+        })
+        .then((data) => {
+            profilAvatar.src = data.avatar;
+            avatarPopupForm.close();
+        })
+        .catch((err) => {
+
+            console.log(err);
+        })
+        .finally(() => {
+            avatarPopupForm.dataLoading(false)
+        })
+})
+avatarPopupForm.setEventListeners();
+addAvatarButton.addEventListener('click', () => avatarPopupForm.open());

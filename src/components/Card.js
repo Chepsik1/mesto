@@ -76,13 +76,22 @@ export class Card {
   }
   _like() {
     if (this._cardLike.classList.contains('elements__element-like_active')) {
-      this._cardLike.classList.remove('elements__element-like_active');
-      this._scoreLikes.textContent = this._likes.length -= 1;
       this._removeLike();
     } else {
-      this._cardLike.classList.add('elements__element-like_active');
-      this._scoreLikes.textContent = this._likes.length += 1;
       this._addLike();
+    }
+  }
+
+  addLikeOnRequest() {
+    this._cardLike.classList.add('elements__element-like_active');
+    this._scoreLikes.textContent = this._likes.length += 1;
+  }
+
+  removeLikeOnRequest() {
+    this._cardLike.classList.remove('elements__element-like_active');
+    this._scoreLikes.textContent = this._likes.length -= 1;
+    if (this._likes.length <= 0) {
+      this._scoreLikes.textContent = '';
     }
   }
 

@@ -6,6 +6,12 @@ export class Api {
     this._address = address;
     this._token = token;
   }
+  _getResponse(res) {
+    if (res.ok) {
+      return res.json()
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
 
   getCards() {
     return fetch(`${this._address}/cards`, {
@@ -14,13 +20,7 @@ export class Api {
           authorization: this._token
         }
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-
-        return Promise.reject(`Ошибка ${response.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
   getInfoAndAvatar() {
@@ -30,12 +30,7 @@ export class Api {
           authorization: this._token
         }
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        return Promise.reject(`Ошибка ${response.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
   updateInfo(info) {
@@ -49,12 +44,7 @@ export class Api {
           info
         )
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        return Promise.reject(`Ошибка ${response.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
   updateAvatar(info) {
@@ -68,15 +58,10 @@ export class Api {
           info
         )
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        return Promise.reject(`Ошибка ${response.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
-  newCard(info) {
+  addNewCard(info) {
     return fetch(`${this._address}/cards`, {
         method: 'POST',
         headers: {
@@ -87,13 +72,7 @@ export class Api {
           info
         )
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-
-        return Promise.reject(`Ошибка ${response.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
   deleteCard(cardId) {
@@ -104,12 +83,7 @@ export class Api {
           'Content-Type': this._contentType
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
   countLikeApi(info) {
@@ -120,12 +94,7 @@ export class Api {
           'Content-Type': this._contentType
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 
   deleteLike(info) {
@@ -136,11 +105,6 @@ export class Api {
           'Content-Type': this._contentType
         }
       })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`)
-      })
+      .then(res => this._getResponse(res))
   }
 }
