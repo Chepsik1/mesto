@@ -138,6 +138,7 @@ Promise.all([
                     const addCard = cardRender(data);
                     const cardElement = addCard.render();
                     addSection.addItem(cardElement);
+                    cardPopupHandle.close();
                 })
                 .catch((err) => {
                     console.log(err);
@@ -145,7 +146,7 @@ Promise.all([
                 .finally(() => {
                     cardPopupHandle.dataLoading(false)
                 })
-            cardPopupHandle.close();
+           
         })
         cardPopupHandle.setEventListeners();
 

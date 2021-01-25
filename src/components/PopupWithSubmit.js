@@ -5,7 +5,7 @@ import {
 export class PopupWithSubmit extends Popup {
     constructor(popupSelector) {
         super(popupSelector);
-        this._formElementConteiner = this._popupSelector.querySelector('.popup-del__conteiner');
+        this._formElementConteiner = this._popupElement.querySelector('.popup-del__conteiner');
     }
 
     handleSubmit(handleSubmitform) {
